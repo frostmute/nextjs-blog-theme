@@ -3,10 +3,10 @@ type: Post
 title: How to Install Chrome OS on PC with Play Store Support
 description: >-
   A tutorial on how to deploy ChromeOS, with fully functional Play Store support, on your desktop PC
-date: '2024-12-02'
+date: "2024-12-02"
 ---
 
-![ChromeOS](https://images.unsplash.com/photo-1668853907314-e93ecf0526bc?ixlib=rb-4.0.3&q=90&fm=jpg&crop=entropy&cs=srgb&w=2048)
+<img src="/chromeOS.jpg" alt="ChromeOS" width="400px"/>
 
 # Requirements for Installing Chrome OS on Windows PC
 
@@ -49,7 +49,7 @@ Flash and Manage Files
 
 # Boot into Linux Mint Cinnamon
 
-     Plug the USB flash drive into the PC on which you want to install Chrome OS. If you are installing Chrome OS on the same PC then keep it plugged in.
+    Plug the USB flash drive into the PC on which you want to install Chrome OS. If you are installing Chrome OS on the same PC then keep it plugged in.
     Next, restart your PC and press the boot key continuously to boot into the UEFI/BIOS menu. If you don’t know the boot key of your PC then you can find it from the below table.
     Once you have entered the BIOS, move to the “Boot” tab and select “UEFI” from the Boot List Option. If this option is not available then don’t worry, move to the next step.
     After that, move to the “Security” tab and disable “Secure Boot”. Keep in mind, every BIOS has its own interface so the menu placement might differ from one PC to another. Nevertheless, look for “UEFI” and “Secure Boot” under Security, Boot, or System Configuration tabs and makes the changes accordingly. Keep in mind, disabling Secure Boot is mandatory.
@@ -85,7 +85,7 @@ Open the GParted application on Linux Mint (from the start menu) and check the n
 
 For example, if the hard disk name is mmcblk0 then /dev/sda in the last line should change to /dev/mmcblk0. Now, save the file and execute the install.sh file and it should install Chrome OS on your hard disk. In case, you are unable to edit the install.sh file on Linux Mint, go back to Windows and download Notepad++ (Free). From there, you can edit the file easily. Make sure to open “Edit” from the menu bar and then choose “EOL Conversion”. After that, choose “Unix” and save the file. Now, execute “install.sh” in Linux Mint and you will have no issues.
 
-In case, you are getting an entirely new error like syntax error near unexpected token `$’\r’ ‘ while running the script then open the chromeos-install.sh file using Notepad++ on Windows 10. chromeos-install.sh file will be available under the “Chrome OS” folder that you moved to the USB drive. After that, follow the same steps as above and change the formatting option to Unix on Notepad++. Open Edit -> EOL Conversion -> Unix and save the file. Now, go ahead with the installation.
+In case, you are getting an entirely new error like syntax error near unexpected token `\$’\r’ ‘ while running the script then open the chromeos-install.sh file using Notepad++ on Windows 10. chromeos-install.sh file will be available under the “Chrome OS” folder that you moved to the USB drive. After that, follow the same steps as above and change the formatting option to Unix on Notepad++. Open Edit -> EOL Conversion -> Unix and save the file. Now, go ahead with the installation.
 
 If you are having issues with WiFi, Bluetooth, touchscreen display, etc. then you can try adding support for your specific hardware device from the Crosh terminal. Just open Chrome and press Ctrl + Alt + T to open the Crosh terminal. After that, enter shell and hit enter. Now, run sudo edit-grub-config. Here you can add support for your hardware device. You can find the complete list of commands from here.
 
