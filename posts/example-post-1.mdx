@@ -78,9 +78,15 @@ Note: If you are having issues with WiFi, Bluetooth, or any other hardware devic
 # Troubleshooting Chrome OS on PC
 
 If Chrome OS got installed on the wrong device i.e. on the USB stick then follow this simple tutorial to resolve the issue. Generally, the hard disk is named as sda, but on some older computers, it is named as mmcblk0 or something else. And because of this ambiguity, Chrome OS gets installed on the wrong device. So to fix the problem, here is what you need to do.
+
 Open the GParted application on Linux Mint (from the start menu) and check the name of your hard disk drive (on the top-right corner). It should be sda. If it’s something else then note it down and open install.sh file using Vim editor on Linux Mint (just search in the start menu). Replace sda with the actual hard disk name in the last line.
+
 For example, if the hard disk name is mmcblk0 then /dev/sda in the last line should change to /dev/mmcblk0. Now, save the file and execute the install.sh file and it should install Chrome OS on your hard disk. In case, you are unable to edit the install.sh file on Linux Mint, go back to Windows and download Notepad++ (Free). From there, you can edit the file easily. Make sure to open “Edit” from the menu bar and then choose “EOL Conversion”. After that, choose “Unix” and save the file. Now, execute “install.sh” in Linux Mint and you will have no issues.
+
 In case, you are getting an entirely new error like syntax error near unexpected token `$’\r’ ‘ while running the script then open the chromeos-install.sh file using Notepad++ on Windows 10. chromeos-install.sh file will be available under the “Chrome OS” folder that you moved to the USB drive. After that, follow the same steps as above and change the formatting option to Unix on Notepad++. Open Edit -> EOL Conversion -> Unix and save the file. Now, go ahead with the installation.
+
 If you are having issues with WiFi, Bluetooth, touchscreen display, etc. then you can try adding support for your specific hardware device from the Crosh terminal. Just open Chrome and press Ctrl + Alt + T to open the Crosh terminal. After that, enter shell and hit enter. Now, run sudo edit-grub-config. Here you can add support for your hardware device. You can find the complete list of commands from here.
+
 For example, if you have an RT3290/RT3298LE Bluetooth device then you can add “options=rtbth” (with quotes) at the end of “cros_debug” and before loop.max…. Now, press Ctrl + X and press “Y”. Next, hit enter to save the file. Finally, restart your computer, and this time Bluetooth should work fine.
+
 Similarly, if you want to fix WiFi then first you need to find out the manufacturer of the wireless card. If it’s Broadcom then add to the same line like this: “options=rtbth,broadcom_wl”. This will fix both Bluetooth and WiFi issues. You can remove rtbth if Bluetooth is already working for you. Similarly, if it’s Realtek then add “options=rtbth,rtl8188eu” or “options=rtbth,rtl8821ce”. Basically, you can add support for hardware devices in this fashion: “options=option1,option2,…” (without spaces) to activate them.
