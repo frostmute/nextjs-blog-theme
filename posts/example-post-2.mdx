@@ -22,17 +22,17 @@ Set repository --> Settings --> Pages --> Source (Deploy from a branch): gh-page
 
 ## Build,yml
 
-```
+
 name: GH Pages
 
-on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    on:
+      push:
+        branches: [ "main" ]
+      pull_request:
+        branches: [ "main" ]
 
-jobs:
-  build:
+    jobs:
+      build:
 
     runs-on: ubuntu-22.04
 
@@ -56,7 +56,7 @@ jobs:
         with:
           publish_dir: ./dist
           github_token: ${{ secrets.GH_TOKEN }}
-```
+
 
 permissions:
 
